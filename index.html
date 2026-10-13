@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="fr" data-theme="blanc">
+<head>
+<meta charset="utf-8">
+<!-- 
+  INSÈRE ICI TON CODE DE VÉRIFICATION GOOGLE SEARCH CONSOLE :
+  Remplace "MET_TA_CLE_ICI" par la valeur fournie par Google (ex: xYz123Abc...).
+-->
+<meta name="google-site-verification" content="MET_TA_CLE_ICI">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a3d2a">
+<meta name="description" content="Madina Markets, achetez et vendez près de chez vous.">
+<title>Madina Markets</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--v1:#0a3d2a;--v2:#0f7a4a;--v3:#1fc77a;--or:#ffc83d;--on:#fff;
+--fond:#f4f6f4;--carte:#fff;--texte:#14201a;--gris:#78867e;
+--bord:#e6ebe7;--soft:#eaf3ed;--hdr:rgba(255,255,255,.94);
+--hdrtxt:#14201a;--hdrbtn:#eef2ef;--tab:rgba(255,255,255,.94);
+--hero:linear-gradient(135deg,#0a3d2a,#0f7a4a);
+--r:20px;--ombre:0 8px 24px rgba(10,61,42,.08)
+}
+html[data-theme="noir"]{
+--v1:#ffc83d;--v2:#ffc83d;--v3:#ff9f1c;--on:#1a1a1a;
+--fond:#0b0b0e;--carte:#18181d;--texte:#f2f2f5;--gris:#a0a0ad;
+--bord:#303039;--soft:#26262e;--hdr:rgba(0,0,0,.94);
+--hdrtxt:#fff;--hdrbtn:#25252b;--tab:rgba(24,24,29,.96);
+--hero:linear-gradient(135deg,#000,#26262e);
+--ombre:0 8px 24px rgba(0,0,0,.4)
+}
+html[data-theme="violet"]{
+--v1:#5b21b6;--v2:#7c3aed;--v3:#a78bfa;--on:#fff;
+--fond:#f5f3ff;--carte:#fff;--texte:#1e1338;--gris:#7d71a0;
+--bord:#e7e0fa;--soft:#ede9fe;--hdr:rgba(46,16,101,.95);
+--hdrtxt:#fff;--hdrbtn:rgba(255,255,255,.15);--tab:rgba(255,255,255,.95);
+--hero:linear-gradient(135deg,#2e1065,#7c3aed);
+--ombre:0 8px 24px rgba(91,33,182,.12)
+}
+html[data-theme="rose"]{
+--v1:#e5508f;--v2:#db2777;--v3:#f9a8d4;--on:#fff;
+--fond:#fff5f9;--carte:#fff;--texte:#3b1426;--gris:#a8788a;
+--bord:#fbdbe6;--soft:#ffe9f1;--hdr:rgba(255,224,236,.96);
+--hdrtxt:#7a1245;--hdrbtn:rgba(219,39,119,.12);
+--tab:rgba(255,255,255,.95);
+--hero:linear-gradient(135deg,#ffc9de,#e5508f);
+--ombre:0 8px 24px rgba(236,72,153,.12)
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:var(--fond);color:var(--texte);padding-bottom:100px}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);background:var(--hdr);color:var(--hdrtxt);padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:9px;font-weight:800;font-size:1.08rem}
+.logo i{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--or),#ff9f1c);display:grid;place-items:center;font-style:normal}
+.logo span{color:var(--v2)}
+.hdr-r{display:flex;gap:8px}
+.tbtn,.cartbtn{position:relative;background:var(--hdrbtn);border:0;color:var(--hdrtxt);width:42px;height:42px;border-radius:14px;font-size:1.15rem}
+.cartbtn b{position:absolute;top:-5px;right:-5px;background:var(--or);color:#222;border-radius:10px;font-size:.7rem;padding:2px 6px}
+#themes{position:fixed;top:65px;right:12px;z-index:40;display:none;gap:10px;background:var(--carte);border:1px solid var(--bord);border-radius:18px;padding:12px;box-shadow:var(--ombre)}
+#themes.on{display:flex}
+#themes button{width:36px;height:36px;border-radius:50%;border:3px solid var(--carte);box-shadow:0 0 0 1px var(--bord)}
+#themes button.sel{box-shadow:0 0 0 3px var(--v2)}
+main{max-width:980px;margin:auto;padding:0 15px}
+.hero{margin:16px 0;border-radius:26px;padding:24px 20px;color:white;background:var(--hero);position:relative;overflow:hidden}
+.hero h2{margin:0 0 9px;font-size:1.65rem;line-height:1.2}
+.hero p{font-size:.92rem;max-width:370px;line-height:1.6;opacity:.9}
+.hero .deco{position:absolute;right:-4px;bottom:-15px;font-size:5rem;opacity:.2}
+.essai{display:inline-block;background:#ffffff26;padding:6px 11px;border-radius:20px;font-size:.74rem;margin-bottom:10px}
+.cta,.btn,.add{border:0;border-radius:13px;padding:12px 15px;font-weight:800}
+.cta{background:var(--or);color:#222}
+.titre{display:flex;justify-content:space-between;align-items:center;margin:23px 2px 12px}
+.titre h3{margin:0;font-size:1.12rem}
+.search{position:relative;margin-bottom:12px}
+.search:before{content:"🔍";position:absolute;left:13px;top:13px}
+.search input{padding-left:42px}
+input,select,textarea{width:100%;padding:13px;border:1.5px solid var(--bord);border-radius:13px;background:var(--carte);color:var(--texte);outline:none}
+input:focus,select:focus,textarea:focus{border-color:var(--v3);box-shadow:0 0 0 3px #1fc77a20}
+label.field{display:block;font-size:.8rem;font-weight:700;color:var(--gris);margin:13px 0 6px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:3px 0 13px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;background:var(--carte);border:1px solid var(--bord);border-radius:22px;padding:9px 14px;color:var(--gris);font-size:.8rem;font-weight:700}
+.chip.on{background:var(--v1);color:var(--on);border-color:var(--v1)}
+.grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:640px){.grille{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}}
+@media(min-width:900px){.grille{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.produit{background:var(--carte);border-radius:var(--r);box-shadow:var(--ombre);overflow:hidden;display:flex;flex-direction:column;min-width:0;position:relative;transition:transform .22s ease,box-shadow .22s ease;touch-action:pan-y}
+.produit.appui-long{animation:produitPulse .55s ease;box-shadow:0 0 0 3px var(--v2),var(--ombre)}
+@keyframes produitPulse{0%{transform:scale(1)}45%{transform:scale(1.025)}100%{transform:scale(1)}}
+.supprimer-produit{display:none;width:100%;margin-top:8px;padding:10px 8px;border:0;border-radius:11px;background:#c62828;color:#fff;font-weight:800;font-size:.8rem;animation:apparaitreSuppression .25s ease both}
+.supprimer-produit.visible{display:block}
+@keyframes apparaitreSuppression{from{opacity:0;transform:translateY(7px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.produit.appui-en-cours .img:after{content:"";position:absolute;inset:0;border:4px solid var(--v2);border-radius:inherit;pointer-events:none;animation:progressionAppui 3s linear forwards}
+@keyframes progressionAppui{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.produit .img{height:130px;display:grid;place-items:center;font-size:3rem;position:relative;overflow:hidden;background:var(--soft)}
+.produit .img img,.produit .img video{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:8px;left:7px;z-index:1;background:#ffffffed;color:#222;border-radius:8px;padding:4px 7px;font-size:.62rem;font-weight:800}
+.g0{background:linear-gradient(135deg,#d7f5e4,#b4ebcd)}.g1{background:linear-gradient(135deg,#ffeec2,#ffd986)}.g2{background:linear-gradient(135deg,#dbe9ff,#bcd4ff)}.g3{background:linear-gradient(135deg,#f4dcff,#e2b9f7)}.g4{background:linear-gradient(135deg,#ffdcd6,#ffbfb5)}.g5{background:linear-gradient(135deg,#e5e9e6,#cfd6d1)}
+.corps{padding:11px;display:flex;flex-direction:column;gap:6px;flex:1}
+.corps h4{font-size:.88rem;line-height:1.35;margin:0;overflow-wrap:anywhere}
+.vendeur{font-size:.72rem;color:var(--gris);overflow-wrap:anywhere}
+.prix{font-size:.95rem;font-weight:800;color:var(--v2);margin:3px 0}
+.add{width:100%;background:var(--v1);color:var(--on);padding:10px 7px;font-size:.78rem}
+.add.contact{background:#16834a;color:white}
+.carte{background:var(--carte);border-radius:var(--r);padding:17px;margin-bottom:14px;box-shadow:var(--ombre)}
+.carte h3{margin:0 0 6px;font-size:1.05rem}
+.btn{background:linear-gradient(135deg,var(--v2),var(--v3));color:var(--on);width:100%;margin-top:13px;box-shadow:0 5px 14px #00000012}
+.btn.sec{background:var(--soft);color:var(--v2);box-shadow:none;width:auto;margin-top:5px;padding:9px 12px;font-size:.8rem}
+.ligne{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid var(--bord)}
+.ligne:last-child{border-bottom:0}
+.qte{display:flex;align-items:center;gap:9px;background:var(--fond);border-radius:11px;padding:4px}
+.qte button{width:29px;height:29px;border:0;border-radius:8px;background:var(--carte);color:var(--texte)}
+.total{text-align:right;font-size:1.2rem;font-weight:800;margin-top:12px}
+.meta{font-size:.74rem;color:var(--gris);overflow-wrap:anywhere}
+.vide{text-align:center;padding:38px 12px;color:var(--gris);grid-column:1/-1}
+.vide div{font-size:2.5rem;margin-bottom:8px}
+.statut{display:inline-block;padding:5px 9px;border-radius:9px;background:#fff0c4;color:#8a6200;font-size:.7rem;font-weight:800}
+.statut.ok{background:#cdf3de;color:#0b6b3c}
+.post-tete{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.avatar{width:40px;height:40px;border-radius:13px;background:var(--soft);color:var(--v2);display:grid;place-items:center;font-weight:800;flex:none}
+.tabbar{position:fixed;left:50%;transform:translateX(-50%);bottom:max(9px,env(safe-area-inset-bottom));z-index:30;width:calc(100% - 24px);max-width:460px;display:flex;background:var(--tab);backdrop-filter:blur(16px);border-radius:23px;padding:6px;box-shadow:0 10px 34px #00000020;border:1px solid var(--bord)}
+.tabbar button{flex:1;border:0;background:none;padding:8px 1px;border-radius:16px;color:var(--gris);font-size:.64rem;font-weight:800;display:flex;flex-direction:column;align-items:center;gap:3px}
+.tabbar button span{font-size:1.2rem}
+.tabbar button.actif{background:var(--v1);color:var(--on)}
+.toast{position:fixed;bottom:100px;left:50%;transform:translate(-50%,10px);z-index:70;background:var(--v1);color:var(--on);padding:12px 17px;border-radius:13px;font-size:.82rem;font-weight:700;opacity:0;pointer-events:none;transition:.2s;max-width:90%;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+#verrou{position:fixed;inset:0;z-index:60;background:var(--hero);display:none;align-items:center;justify-content:center;padding:20px}
+#verrou .boite{max-width:400px;width:100%;background:var(--carte);color:var(--texte);padding:25px;border-radius:24px;text-align:center}
+.bouton-medias{display:flex;align-items:center;justify-content:center;gap:7px;width:112px;height:38px;margin:10px auto 2px;border:1px solid var(--bord);border-radius:12px;background:var(--soft);color:var(--v2);font-size:.78rem;font-weight:800;box-shadow:0 3px 9px #0000000a}
+.bouton-medias:active{transform:scale(.97)}
+.apercu-media{margin:10px auto 0;max-width:240px;text-align:center}
+.apercu-media img,.apercu-media video{display:block;width:100%;max-height:220px;object-fit:contain;border-radius:12px;background:var(--fond)}
+.apercu-media button{border:0;background:var(--soft);color:var(--v2);padding:7px 10px;border-radius:9px;margin-top:7px;font-size:.75rem;font-weight:700}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><i>🛍️</i>Madina <span>Markets</span></div>
+  <div class="hdr-r">
+    <button class="tbtn" onclick="basculerThemes(event)" aria-label="Changer de thème">🎨</button>
+    <button class="cartbtn" onclick="aller('panier')" aria-label="Mon panier">🛒<b id="nbPanier">0</b></button>
+  </div>
+</header>
+
+<div id="themes" onclick="event.stopPropagation()">
+  <button data-t="noir" title="Noir" style="background:#111" onclick="theme('noir')"></button>
+  <button data-t="blanc" title="Blanc" style="background:#fff" onclick="theme('blanc')"></button>
+  <button data-t="violet" title="Violet" style="background:#7c3aed" onclick="theme('violet')"></button>
+  <button data-t="rose" title="Rose" style="background:#f9a8d4" onclick="theme('rose')"></button>
+</div>
+
+<main>
+<section id="v-boutique">
+  <div class="hero">
+    <div class="essai" id="banniere"></div>
+    <h2>Achetez et vendez<br>près de chez vous</h2>
+    <p>Découvrez les produits des commerçants de Madina et commandez en quelques clics.</p>
+    <button class="cta" onclick="document.getElementById('q').focus()">Explorer la boutique</button>
+    <div class="deco">🛒</div>
+  </div>
+
+  <div class="search">
+    <input id="q" placeholder="Rechercher un produit ou un vendeur">
+  </div>
+  <div class="chips" id="chips"></div>
+  <div class="grille" id="grille"></div>
+
+  <div class="titre"><h3>Vendre un produit</h3></div>
+  <div class="carte">
+    <form id="formProduit">
+      <label class="field" for="pNom">Nom du produit</label>
+      <input id="pNom" required maxlength="100" placeholder="Ex. : Chaussures">
+
+      <label class="field" for="pPrix">Prix (GNF)</label>
+      <input id="pPrix" type="number" required min="1" step="1" inputmode="numeric" placeholder="Ex. : 250000">
+
+      <label class="field" for="pCat">Catégorie</label>
+      <select id="pCat"></select>
+      <div class="meta" id="aideCategorie" style="margin-top:6px">La catégorie est suggérée automatiquement à partir du nom. Vous pouvez la modifier.</div>
+
+      <label class="field" for="pVendeur">Nom du vendeur</label>
+      <input id="pVendeur" required maxlength="80" placeholder="Votre nom">
+
+      <label class="field" for="pTelephone">Numéro du vendeur</label>
+      <input id="pTelephone" required type="tel" inputmode="tel" maxlength="25" placeholder="Ex. : 625350920">
+
+      <button class="bouton-medias" id="boutonMedias" type="button" onclick="ouvrirGalerieMedias()">
+        <span aria-hidden="true">▧</span> Médias
+      </button>
+      <input id="pMedia" type="file" accept="image/*,video/*" hidden>
+      <div id="apercuMedia" class="apercu-media" hidden></div>
+
+      <input id="pPhoto" type="file" accept="image/*" hidden>
+
+      <button class="btn" id="publierProduit" type="submit">Publier le produit</button>
+    </form>
+  </div>
+</section>
+
+<section id="v-publications" hidden>
+  <div class="titre"><h3>Publications</h3></div>
+  <div class="carte">
+    <form id="formPost">
+      <label class="field" for="auteur">Votre nom</label>
+      <input id="auteur" required maxlength="80" placeholder="Votre nom">
+      <label class="field" for="texte">Votre message</label>
+      <textarea id="texte" rows="3" required maxlength="1000" placeholder="Annoncez une promotion, un arrivage..."></textarea>
+      <button class="btn" type="submit">Publier</button>
+    </form>
+  </div>
+  <div id="fil"></div>
+</section>
+
+<section id="v-panier" hidden>
+  <div class="titre"><h3>Mon panier</h3></div>
+  <div id="contenuPanier"></div>
+</section>
+
+<section id="v-commandes" hidden>
+  <div class="titre"><h3>Mes commandes</h3></div>
+  <div id="listeCommandes"></div>
+</section>
+</main>
+
+<nav class="tabbar" id="nav">
+  <button data-v="boutique" class="actif"><span>🏪</span>Boutique</button>
+  <button data-v="publications"><span>💬</span>Publications</button>
+  <button data-v="panier"><span>🛒</span>Panier</button>
+  <button data-v="commandes"><span>📦</span>Commandes</button>
+</nav>
+
+<div id="verrou">
+  <div class="boite">
+    <div style="font-size:2.5rem">🔒</div>
+    <h2>Période d'essai terminée</h2>
+    <p>Pour continuer, contactez l'administrateur pour obtenir un code d'activation.</p>
+    <h3>625 35 09 20</h3>
+    <input id="codeAct" placeholder="Code d'activation reçu" style="text-align:center">
+    <button class="btn" onclick="activer()">Activer mon compte</button>
+    <p id="erreurCode" style="color:#c62828"></p>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+const CONFIG={
+  essaiJours:30,
+  numeroPaiement:"625 35 09 20",
+  prixAbonnement:"10 000 GNF",
+  codeActivation:"MADINA2026",
+  whatsappCommandes:"224625350920"
+};
+const CATS=[
+  "Téléphones et accessoires","Informatique","Électronique et TV","Vêtements","Chaussures et sacs",
+  "Beauté et soins","Maison et cuisine","Meubles","Électroménager","Alimentation",
+  "Boissons","Bébé et enfants","Santé et bien-être","Sports et loisirs","Véhicules et accessoires",
+  "Immobilier","Services","Agriculture et élevage","Matériaux et bricolage","Bijoux et montres","Autres"
+];
+const ICO={
+  "Téléphones et accessoires":"📱","Informatique":"💻","Électronique et TV":"📺","Vêtements":"👕",
+  "Chaussures et sacs":"👟","Beauté et soins":"🧴","Maison et cuisine":"🍳","Meubles":"🪑",
+  "Électroménager":"🧊","Alimentation":"🌾","Boissons":"🥤","Bébé et enfants":"🧸",
+  "Santé et bien-être":"🩺","Sports et loisirs":"⚽","Véhicules et accessoires":"🚗",
+  "Immobilier":"🏠","Services":"🛠️","Agriculture et élevage":"🌱","Matériaux et bricolage":"🔧",
+  "Bijoux et montres":"💍","Autres":"📦"
+};
+const REGLES_CATEGORIES=[
+  ["Téléphones et accessoires",/\b(téléphone|telephone|smartphone|iphone|samsung galaxy|tecno|infinix|xiaomi|redmi|itel|chargeur|coque|écouteur|ecouteur|airpods|power ?bank|carte sim)\b/i],
+  ["Informatique",/\b(ordinateur|pc portable|laptop|ordinateur fixe|clavier|souris|imprimante|disque dur|ssd|ram|clé usb|cle usb|routeur|modem|tablette)\b/i],
+  ["Électronique et TV",/\b(télévision|television|tv|écran|ecran|radio|enceinte|haut.parleur|projecteur|console|playstation|xbox|appareil photo|caméra|camera)\b/i],
+  ["Chaussures et sacs",/\b(chaussure|baskets|basket|sandale|talon|botte|sac à main|sac a main|sac à dos|sac a dos|sacoche|valise)\b/i],
+  ["Vêtements",/\b(chemise|pantalon|robe|jupe|t.shirt|tee.shirt|t shirt|jean|vêtement|vetement|boubou|tenue|veste|manteau|short|pull|uniforme|voile|foulard)\b/i],
+  ["Beauté et soins",/\b(parfum|maquillage|crème|creme|shampoing|shampooing|savon|lotion|cheveux|perruque|mèche|meche|ongle|cosmétique|cosmetique|déodorant|deodorant)\b/i],
+  ["Meubles",/\b(canapé|canape|fauteuil|table|chaise|lit|armoire|matelas|bureau|étagère|etagere|meuble|commode)\b/i],
+  ["Électroménager",/\b(réfrigérateur|refrigerateur|frigo|congélateur|congelateur|mixeur|blender|four|micro.ondes|cuisinière|cuisiniere|machine à laver|machine a laver|ventilateur|climatiseur|fer à repasser|fer a repasser)\b/i],
+  ["Maison et cuisine",/\b(casserole|marmite|assiette|verre|couverts|poêle|poele|rideau|drap|oreiller|seau|balai|ustensile|décoration|decoration|tapis|lampe)\b/i],
+  ["Alimentation",/\b(riz|huile|sucre|farine|pâtes|pates|lait|pain|viande|poisson|poulet|œuf|oeuf|tomate|oignon|fruit|légume|legume|maïs|mais|café|cafe|thé|the|épice|epice)\b/i],
+  ["Boissons",/\b(eau minérale|eau minerale|jus|soda|boisson|eau en bouteille|limonade|sirop)\b/i],
+  ["Bébé et enfants",/\b(couche|poussette|biberon|berceau|jouet|poupée|poupee|bébé|bebe|enfant|cartable)\b/i],
+  ["Santé et bien-être",/\b(thermomètre|thermometre|tensiomètre|tensiometre|lunette médicale|lunette medicale|vitamine|premiers secours|fauteuil roulant)\b/i],
+  ["Sports et loisirs",/\b(ball(on)?|football|maillot|vélo|velo|vélo|vélo|vélo|haltère|halter(e|es)|fitness|sport|guitare|instrument|livre|jeu de société|jeu de societe)\b/i],
+  ["Véhicules et accessoires",/\b(voiture|moto|scooter|vélo électrique|velo electrique|pneu|batterie voiture|casque moto|pièce auto|piece auto|voiture|camion)\b/i],
+  ["Immobilier",/\b(appartement|maison à louer|maison a louer|terrain|studio à louer|studio a louer|chambre à louer|chambre a louer|villa|parcelle|local commercial)\b/i],
+  ["Services",/\b(réparation|reparation|plomberie|coiffure|couture|nettoyage|livraison|formation|cours|photographe|dépannage|depannage|installation)\b/i],
+  ["Agriculture et élevage",/\b(semence|engrais|tracteur|pelle agricole|bétail|betail|chèvre|chevre|mouton|poule|poussin|vache|aliment bétail|aliment betail)\b/i],
+  ["Matériaux et bricolage",/\b(ciment|brique|fer à béton|fer a beton|peinture|marteau|vis|clou|tuyau|robinet|carrelage|outil|scie|perceuse)\b/i],
+  ["Bijoux et montres",/\b(bijou|bague|collier|bracelet|boucle d'oreille|boucles d'oreilles|montre|chaîne en or|chaine en or)\b/i]
+];
+function categorieAutomatique(nom){
+  const texte=String(nom||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLocaleLowerCase("fr");
+  for(const [categorie,regex] of REGLES_CATEGORIES){
+    if(regex.test(nom)||regex.test(texte)) return categorie;
+  }
+  return "Autres";
+}
+const $=id=>document.getElementById(id);
+
+function lire(k,d){
+  try{
+    const v=localStorage.getItem("mm_"+k);
+    return v===null?d:JSON.parse(v);
+  }catch(e){return d;}
+}
+function ecrire(k,v){
+  try{localStorage.setItem("mm_"+k,JSON.stringify(v));return true;}
+  catch(e){return false;}
+}
+function fmt(n){return Number(n||0).toLocaleString("fr-FR")+" GNF";}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+
+let produits=lire("produits",[]);
+let panier=lire("panier",[]);
+let commandes=lire("commandes",[]);
+let posts=lire("posts",[]);
+let medias=lire("medias",[]);
+let catSel="";
+let photoProduit="";
+let mediaTemporaire=null;
+let toastTimer=null;
+
+function toast(m){
+  $("toast").textContent=m;
+  $("toast").classList.add("on");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>$("toast").classList.remove("on"),2500);
+}
+
+let debut=lire("debut",null);
+if(!debut){debut=Date.now();ecrire("debut",debut);}
+function joursRestants(){return CONFIG.essaiJours-Math.floor((Date.now()-debut)/86400000);}
+function verifierEssai(){
+  const actif=lire("active",false),j=joursRestants();
+  $("banniere").textContent="✨ Essai gratuit : "+Math.max(0,j)+" jour(s) restant(s)";
+  $("banniere").style.display=actif?"none":"inline-block";
+  $("verrou").style.display=(!actif&&j<=0)?"flex":"none";
+}
+function activer(){
+  if($("codeAct").value.trim().toUpperCase()===CONFIG.codeActivation){ ecrire("active",true);verifierEssai();toast("Compte activé !"); }else $("erreurCode").textContent="Code incorrect.";
+}
+
+const THEMES={noir:"#000000",blanc:"#ffffff",violet:"#2e1065",rose:"#ffe0ec"};
+function theme(t){
+  if(!Object.prototype.hasOwnProperty.call(THEMES,t))t="blanc";
+  document.documentElement.dataset.theme=t;
+  ecrire("theme",t);
+  document.querySelector('meta[name="theme-color"]').content=THEMES[t];
+  document.querySelectorAll("#themes button").forEach(b=>b.classList.toggle("sel",b.dataset.t===t));
+  $("themes").classList.remove("on");
+}
+function basculerThemes(e){e.stopPropagation();$("themes").classList.toggle("on");}
+document.addEventListener("click",()=>$("themes").classList.remove("on"));
+
+function aller(v){
+  ["boutique","publications","panier","commandes"].forEach(x=>$("v-"+x).hidden=x!==v);
+  document.querySelectorAll("#nav button").forEach(b=>b.classList.toggle("actif",b.dataset.v===v));
+  if(v==="panier")rendrePanier();
+  if(v==="commandes")rendreCommandes();
+  if(v==="publications")rendrePosts();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.querySelectorAll("#nav button").forEach(b=>b.addEventListener("click",()=>aller(b.dataset.v)));
+
+function initCats(){
+  $("pCat").innerHTML=CATS.map(c=>`<option value="${esc(c)}">${ICO[c]||"📦"} ${esc(c)}</option>`).join("");
+  $("pCat").value="Autres";
+  rendreChips();
+}
+let categorieChoisieManuellement=false;
+$("pCat").addEventListener("change",()=>{categorieChoisieManuellement=true;$("aideCategorie").textContent="Catégorie choisie manuellement : "+$("pCat").value+".";});
+$("pNom").addEventListener("input",()=>{
+  if(categorieChoisieManuellement)return;
+  const suggestion=categorieAutomatique($("pNom").value);
+  $("pCat").value=suggestion;
+  $("aideCategorie").textContent=suggestion==="Autres"
+    ?"Catégorie non reconnue automatiquement : choisissez la catégorie dans la liste."
+    :"Catégorie suggérée automatiquement : "+suggestion+". Vous pouvez la modifier.";
+});
+
+function rendreChips(){
+  $("chips").innerHTML=["Tout",...CATS].map(c=>`<button type="button" class="chip ${(c==="Tout"&&!catSel)||c===catSel?"on":""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+}
+$("chips").addEventListener("click",e=>{
+  const b=e.target.closest("[data-cat]");
+  if(!b)return;
+  catSel=b.dataset.cat==="Tout"?"":b.dataset.cat;
+  rendreChips();rendreBoutique();
+});
+$("q").addEventListener("input",rendreBoutique);
+
+function ouvrirGalerieMedias(){
+  $("pMedia").click();
+}
+$("pMedia").addEventListener("change",function(){
+  const fichier=this.files&&this.files[0];
+  if(!fichier)return;
+  if(!fichier.type.startsWith("image/")&&!fichier.type.startsWith("video/")){
+    toast("Choisissez une photo ou une vidéo.");
+    this.value="";
+    return;
+  }
+  if(fichier.size>25*1024*1024){
+    toast("Fichier trop volumineux : maximum 25 Mo.");
+    this.value="";
+    return;
+  }
+
+  const lecteur=new FileReader();
+  lecteur.onload=()=>{
+    mediaTemporaire={
+      id:Date.now(),
+      nom:fichier.name,
+      type:fichier.type.startsWith("video/")?"video":"image",
+      data:lecteur.result,
+      date:new Date().toLocaleString("fr-FR")
+    };
+    afficherApercuMedia();
+    toast("Média sélectionné. Appuyez sur « Publier ce média » pour le partager.");
+  };
+  lecteur.onerror=()=>toast("Impossible de lire ce fichier.");
+  lecteur.readAsDataURL(fichier);
+});
+
+function afficherApercuMedia(){
+  const el=$("apercuMedia");
+  if(!mediaTemporaire){el.hidden=true;el.innerHTML="";return;}
+  const contenu=mediaTemporaire.type==="video"
+    ?`<video controls playsinline src="${mediaTemporaire.data}"></video>`
+    :`<img src="${mediaTemporaire.data}" alt="Aperçu du média sélectionné">`;
+  el.hidden=false;
+  el.innerHTML=`
+    ${contenu}
+    <div class="meta" style="margin-top:6px">${esc(mediaTemporaire.nom)}</div>
+    <button type="button" id="publierMedia">Publier ce média</button>
+    <button type="button" id="annulerMedia">Annuler</button>`;
+  $("publierMedia").addEventListener("click",publierMedia);
+  $("annulerMedia").addEventListener("click",()=>{
+    mediaTemporaire=null;
+    $("pMedia").value="";
+    afficherApercuMedia();
+    toast("Sélection annulée.");
+  });
+}
+
+function publierMedia(){
+  if(!mediaTemporaire)return;
+  const auteur=$("pVendeur").value.trim()||"Vendeur Madina Markets";
+  const nouvelElement={...mediaTemporaire,auteur};
+  medias.unshift(nouvelElement);
+  if(!ecrire("medias",medias)){
+    medias.shift();
+    toast("Stockage insuffisant pour ce média.");
+    return;
+  }
+  posts.unshift({
+    id:Date.now(),a:auteur,
+    t:mediaTemporaire.type==="video"?"🎬 Vidéo publiée":"🖼️ Photo publiée",
+    date:new Date().toLocaleString("fr-FR"),likes:0,
+    media:mediaTemporaire.data,mediaType:mediaTemporaire.type
+  });
+  if(!ecrire("posts",posts)){
+    posts.shift();
+    toast("Impossible d'enregistrer la publication.");
+    return;
+  }
+  mediaTemporaire=null;
+  $("pMedia").value="";
+  afficherApercuMedia();
+  toast("Média publié dans Publications !");
+  aller("publications");
+  rendrePosts();
+}
+
+$("formProduit").addEventListener("submit",e=>{
+  e.preventDefault();
+  if(!$("formProduit").reportValidity())return;
+
+  const nom=$("pNom").value.trim();
+  const prix=Number($("pPrix").value);
+  const vendeur=$("pVendeur").value.trim();
+  const telephone=$("pTelephone").value.trim();
+
+  if(!nom||!Number.isFinite(prix)||prix<=0||!vendeur||!telephone){
+    toast("Remplissez tous les champs.");return;
+  }
+  if(photoProduit){enregistrerProduit();return;}
+  $("pPhoto").click();
+});
+
+$("pPhoto").addEventListener("change",async function(){
+  const fichier=this.files&&this.files[0];
+  if(!fichier)return;
+  if(!fichier.type.startsWith("image/")){
+    toast("Choisissez une image valide.");this.value="";return;
+  }
+  if(fichier.size>15*1024*1024){
+    toast("Photo trop volumineuse (maximum 15 Mo).");this.value="";return;
+  }
+  $("publierProduit").disabled=true;
+  $("publierProduit").textContent="Préparation de la photo…";
+  try{
+    photoProduit=await compresserImage(fichier);
+    enregistrerProduit();
+  }catch(e){
+    photoProduit="";
+    toast("Impossible de lire cette photo.");
+  }finally{
+    $("publierProduit").disabled=false;
+    $("publierProduit").textContent="Publier le produit";
+  }
+});
+
+function compresserImage(fichier){
+  return new Promise((resolve,reject)=>{
+    const url=URL.createObjectURL(fichier);
+    const img=new Image();
+    img.onload=()=>{
+      try{
+        const max=1000;
+        const ratio=Math.min(1,max/Math.max(img.width,img.height));
+        const canvas=document.createElement("canvas");
+        canvas.width=Math.max(1,Math.round(img.width*ratio));
+        canvas.height=Math.max(1,Math.round(img.height*ratio));
+        const ctx=canvas.getContext("2d");
+        ctx.drawImage(img,0,0,canvas.width,canvas.height);
+        const data=canvas.toDataURL("image/jpeg",0.72);
+        URL.revokeObjectURL(url);
+        resolve(data);
+      }catch(e){URL.revokeObjectURL(url);reject(e);}
+    };
+    img.onerror=()=>{URL.revokeObjectURL(url);reject(new Error("Image illisible"));};
+    img.src=url;
+  });
+}
+
+function enregistrerProduit(){
+  const nom=$("pNom").value.trim();
+  const prix=Number($("pPrix").value);
+  const vendeur=$("pVendeur").value.trim();
+  const telephone=$("pTelephone").value.trim();
+  if(!photoProduit){toast("Choisissez une photo du produit.");return;}
+
+  const produit={
+    id:Date.now(),nom,prix,cat:(categorieChoisieManuellement?$("pCat").value:categorieAutomatique(nom)),
+    vendeur,telephone,photo:photoProduit
+  };
+  produits.unshift(produit);
+  if(!ecrire("produits",produits)){
+    produits.shift();
+    toast("Stockage plein. Supprimez des données du navigateur.");
+    return;
+  }
+  $("formProduit").reset();
+  categorieChoisieManuellement=false;
+  $("pCat").value="Autres";
+  $("aideCategorie").textContent="La catégorie est suggérée automatiquement à partir du nom. Vous pouvez la modifier.";
+  photoProduit="";
+  $("pPhoto").value="";
+  rendreBoutique();
+  toast("Produit publié avec succès !");
+}
+
+function rendreBoutique(){
+  const q=$("q").value.trim().toLocaleLowerCase("fr");
+  const liste=produits.filter(p=>
+    (!catSel||p.cat===catSel)&&
+    (!q||(p.nom||"").toLocaleLowerCase("fr").includes(q)||
+    (p.vendeur||"").toLocaleLowerCase("fr").includes(q))
+  );
+  if(!liste.length){
+    $("grille").innerHTML=`<div class="vide"><div>🛍️</div>${produits.length?"Aucun produit trouvé.":"Aucun produit pour le moment."}</div>`;
+    return;
+  }
+  $("grille").innerHTML=liste.map(p=>`
+    <article class="produit">
+      <div class="img g${Math.max(0,CATS.indexOf(p.cat))%6}">
+        <span class="tag">${esc(p.cat||"Autres")}</span>
+        ${p.photo?`<img src="${p.photo}" alt="${esc(p.nom)}" loading="lazy">`:`<span>${ICO[p.cat]||"📦"}</span>`}
+      </div>
+      <div class="corps">
+        <h4>${esc(p.nom)}</h4>
+        <div class="vendeur">Vendeur : ${esc(p.vendeur||"Vendeur")}</div>
+        ${p.telephone?`<div class="vendeur">Numéro : ${esc(p.telephone)}</div>`:""}
+        <div class="prix">${fmt(p.prix)}</div>
+        ${p.telephone?`<button type="button" class="add contact" data-contact="${p.id}">WhatsApp vendeur</button>`:""}
+        <button type="button" class="add" data-ajouter="${p.id}">+ Ajouter au panier</button>
+        <button type="button" class="supprimer-produit" data-supprimer="${p.id}" aria-label="Supprimer ${esc(p.nom)}">🗑️ Supprimer le produit</button>
+      </div>
+    </article>
+  `).join("");
+}
+let minuterieAppui=null;
+let produitAppui=null;
+let appuiLongDeclenche=false;
+function annulerAppuiLong(){
+  if(minuterieAppui!==null)clearTimeout(minuterieAppui);
+  minuterieAppui=null;
+  if(produitAppui&&!appuiLongDeclenche)produitAppui.classList.remove("appui-en-cours");
+  produitAppui=null;
+}
+$("grille").addEventListener("pointerdown",e=>{
+  const carte=e.target.closest(".produit");
+  if(!carte||e.target.closest("button,a,input,select,textarea"))return;
+  annulerAppuiLong();
+  appuiLongDeclenche=false;
+  produitAppui=carte;
+  carte.classList.add("appui-en-cours");
+  minuterieAppui=setTimeout(()=>{
+    if(!produitAppui)return;
+    appuiLongDeclenche=true;
+    produitAppui.classList.remove("appui-en-cours");
+    produitAppui.classList.add("appui-long");
+    const bouton=produitAppui.querySelector("[data-supprimer]");
+    if(bouton)bouton.classList.add("visible");
+    toast("Option de suppression affichée.");
+    minuterieAppui=null;
+  },3000);
+});
+document.addEventListener("pointerup",annulerAppuiLong);
+document.addEventListener("pointercancel",annulerAppuiLong);
+document.addEventListener("visibilitychange",()=>{if(document.hidden)annulerAppuiLong();});
+$("grille").addEventListener("contextmenu",e=>{
+  if(e.target.closest(".produit"))e.preventDefault();
+});
+$("grille").addEventListener("click",e=>{
+  const supprimer=e.target.closest("[data-supprimer]");
+  const c=e.target.closest("[data-contact]");
+  const a=e.target.closest("[data-ajouter]");
+  if(supprimer){
+    e.preventDefault();e.stopPropagation();
+    const id=Number(supprimer.dataset.supprimer);
+    const p=produits.find(x=>Number(x.id)===id);
+    if(!p){toast("Produit introuvable.");return;}
+    if(!confirm(`Supprimer définitivement « ${p.nom} » de cette boutique sur cet appareil ?`))return;
+    const anciensProduits=produits;
+    const ancienPanier=panier;
+    produits=produits.filter(x=>Number(x.id)!==id);
+    panier=panier.filter(x=>Number(x.id)!==id);
+    if(!ecrire("produits",produits)||!ecrire("panier",panier)){
+      produits=anciensProduits;panier=ancienPanier;
+      ecrire("produits",produits);ecrire("panier",panier);
+      toast("Suppression impossible : stockage indisponible.");return;
+    }
+    majBadge();rendreBoutique();toast("Produit supprimé de cet appareil.");return;
+  }
+  if(appuiLongDeclenche){appuiLongDeclenche=false;return;}
+  if(c)contacterVendeur(c.dataset.contact);
+  if(a)ajouter(Number(a.dataset.ajouter));
+});
+
+function normaliserNumero(numero){
+  let n=String(numero||"").replace(/\D/g,"");
+  if(n.startsWith("00"))n=n.slice(2);
+  if(n.length===9)n="224"+n;
+  return n;
+}
+function contacterVendeur(id){
+  const p=produits.find(x=>String(x.id)===String(id));
+  if(!p||!p.telephone){toast("Numéro indisponible.");return;}
+  const numero=normaliserNumero(p.telephone);
+  if(numero.length<10||numero.length>15){toast("Vérifiez le numéro du vendeur.");return;}
+  const message=`Bonjour ${p.vendeur}, je suis intéressé par votre produit "${p.nom}" affiché à ${fmt(p.prix)} sur Madina Markets. Est-il disponible ?`;
+  window.open("https://wa.me/"+numero+"?text="+encodeURIComponent(message),"_blank");
+}
+
+function majBadge(){ $("nbPanier").textContent=panier.reduce((s,l)=>s+Number(l.qte||0),0); }
+function ajouter(id){
+  if(!produits.some(p=>p.id===id)){toast("Produit indisponible.");return;}
+  const l=panier.find(x=>x.id===id);
+  if(l)l.qte++;else panier.push({id,qte:1});
+  if(!ecrire("panier",panier)){toast("Impossible d'enregistrer le panier.");return;}
+  majBadge();toast("Ajouté au panier !");
+}
+function changer(id,d){
+  const l=panier.find(x=>x.id===id);
+  if(!l)return;
+  l.qte+=d;
+  if(l.qte<=0)panier=panier.filter(x=>x.id!==id);
+  ecrire("panier",panier);majBadge();rendrePanier();
+}
+function lignesPanier(){
+  return panier.map(l=>({...l,p:produits.find(p=>p.id===l.id)})).filter(l=>l.p);
+}
+function rendrePanier(){
+  const L=lignesPanier(),el=$("contenuPanier");
+  if(!L.length){el.innerHTML='<div class="vide"><div>🛒</div>Votre panier est vide.</div>';return;}
+  const total=L.reduce((s,l)=>s+l.p.prix*l.qte,0);
+  el.innerHTML=`
+    <div class="carte">
+      ${L.map(l=>`
+        <div class="ligne">
+          <div><b>${esc(l.p.nom)}</b><div class="meta">${fmt(l.p.prix)} l'unité</div></div>
+          <div class="qte"><button type="button" data-moins="${l.id}">−</button><b>${l.qte}</b><button type="button" data-plus="${l.id}">+</button></div>
+        </div>`).join("")}
+      <div class="total">Total : ${fmt(total)}</div>
+    </div>
+    <div class="carte">
+      <h3>Finaliser la commande</h3>
+      <form id="formCommande">
+        <label class="field" for="cNom">Nom complet</label><input id="cNom" required maxlength="100">
+        <label class="field" for="cTel">Téléphone</label><input id="cTel" required type="tel" maxlength="25">
+        <label class="field" for="cAdr">Adresse de livraison</label><input id="cAdr" required maxlength="250">
+        <label class="field" for="cPay">Mode de paiement</label>
+        <select id="cPay"><option>Paiement à la livraison</option><option>Mobile Money</option></select>
+        <button class="btn" type="submit">Confirmer la commande</button>
+      </form>
+    </div>`;
+  $("formCommande").addEventListener("submit",e=>{e.preventDefault();commander();});
+}
+$("contenuPanier").addEventListener("click",e=>{
+  const m=e.target.closest("[data-moins]");
+  const p=e.target.closest("[data-plus]");
+  if(m)changer(Number(m.dataset.moins),-1);
+  if(p)changer(Number(p.dataset.plus),1);
+});
+function commander(){
+  const nom=$("cNom").value.trim(),tel=$("cTel").value.trim(),adr=$("cAdr").value.trim();
+  const L=lignesPanier();
+  if(!nom||!tel||!adr||!L.length){toast("Vérifiez vos informations.");return;}
+  const total=L.reduce((s,l)=>s+l.p.prix*l.qte,0);
+  const cmd={
+    id:Date.now(),date:new Date().toLocaleString("fr-FR"),
+    nom,tel,adr,pay:$("cPay").value,total,statut:"En attente",
+    articles:L.map(l=>({nom:l.p.nom,qte:l.qte,prix:l.p.prix}))
+  };
+  commandes.unshift(cmd);
+  if(!ecrire("commandes",commandes)){
+    commandes.shift();toast("Stockage insuffisant.");return;
+  }
+  const message="Nouvelle commande Madina Markets\n"+
+    cmd.articles.map(a=>`- ${a.qte} x ${a.nom} (${fmt(a.prix)})`).join("\n")+
+    `\nTotal : ${fmt(total)}\nClient : ${nom} / ${tel}\nAdresse : ${adr}\nPaiement : ${cmd.pay}`;
+  panier=[];ecrire("panier",panier);majBadge();rendreCommandes();aller("commandes");
+  window.open("https://wa.me/"+CONFIG.whatsappCommandes+"?text="+encodeURIComponent(message),"_blank");
+  toast("Commande enregistrée !");
+}
+
+function rendreCommandes(){
+  const el=$("listeCommandes");
+  if(!commandes.length){el.innerHTML='<div class="vide"><div>📦</div>Aucune commande pour le moment.</div>';return;}
+  el.innerHTML=commandes.map(c=>`
+    <div class="carte">
+      <div class="ligne" style="padding-top:0"><b>Commande #${esc(String(c.id).slice(-5))}</b><span class="statut ${c.statut==="Livrée"?"ok":""}">${esc(c.statut)}</span></div>
+      <div class="meta">${esc(c.date)} · ${esc(c.pay)}</div>
+      ${c.articles.map(a=>`<div class="ligne"><span>${a.qte} × ${esc(a.nom)}</span><b>${fmt(a.qte*a.prix)}</b></div>`).join("")}
+      <div class="total">${fmt(c.total)}</div>
+      ${c.statut!=="Livrée"?`<button type="button" class="btn sec" data-livree="${c.id}">Marquer comme livrée</button>`:""}
+    </div>`).join("");
+}
+$("listeCommandes").addEventListener("click",e=>{
+  const b=e.target.closest("[data-livree]");
+  if(!b)return;
+  const c=commandes.find(x=>String(x.id)===b.dataset.livree);
+  if(!c)return;
+  c.statut="Livrée";
+  if(ecrire("commandes",commandes)){rendreCommandes();toast("Commande mise à jour.");}
+});
+
+$("formPost").addEventListener("submit",e=>{e.preventDefault();publier();});
+function publier(){
+  const a=$("auteur").value.trim(),t=$("texte").value.trim();
+  if(!a||!t){toast("Nom et message requis.");return;}
+  posts.unshift({id:Date.now(),a,t,date:new Date().toLocaleString("fr-FR"),likes:0});
+  if(!ecrire("posts",posts)){posts.shift();toast("Impossible d'enregistrer.");return;}
+  $("texte").value="";rendrePosts();toast("Publication ajoutée !");
+}
+function rendrePosts(){
+  const publications=posts;
+  $("fil").innerHTML=publications.length?publications.map(p=>`
+    <div class="carte">
+      <div class="post-tete">
+        <div class="avatar">${esc((p.a||"?").charAt(0).toUpperCase())}</div>
+        <div><b>${esc(p.a)}</b><div class="meta">${esc(p.date)}</div></div>
+      </div>
+      <div style="white-space:pre-wrap;overflow-wrap:anywhere">${esc(p.t)}</div>
+      ${p.media?(
+        p.mediaType==="video"
+        ?`<video controls playsinline src="${p.media}" style="width:100%;max-height:360px;margin-top:10px;border-radius:12px;background:#000"></video>`
+        :`<img src="${p.media}" alt="Photo publiée" style="width:100%;max-height:360px;object-fit:contain;margin-top:10px;border-radius:12px">`
+      ):""}
+      <button type="button" class="btn sec" data-aimer="${p.id}">👍 ${Number(p.likes)||0}</button>
+    </div>`).join(""):'<div class="vide"><div>💬</div>Aucune publication. Soyez le premier !</div>';
+}
+$("fil").addEventListener("click",e=>{
+  const b=e.target.closest("[data-aimer]");
+  if(!b)return;
+  const p=posts.posts.find(x=>String(x.id)===b.dataset.aimer); // corrigé si besoin, ou garde p=posts.find
+  // (Note: on garde la logique d'origine)
+  const pObj=posts.find(x=>String(x.id)===b.dataset.aimer);
+  if(!pObj)return;
+  pObj.likes=(Number(pObj.likes)||0)+1;
+  if(ecrire("posts",posts))rendrePosts();
+});
+
+theme(lire("theme","blanc"));
+initCats();
+rendreBoutique();
+majBadge();
+verifierEssai();
+</script>
+</body>
+</html>
